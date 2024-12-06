@@ -8,10 +8,12 @@ public class GameManager : MonoBehaviour
     public GameObject Mapa;
     public Renderer fondo;
     public  List<GameObject> cols;
-    public GameObject zombie;
-    public GameObject Zombie2;
+    public GameObject zom01;
+
+    
 
     public float velocidad = 2;
+    public List<GameObject >obstaculos;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,10 @@ public class GameManager : MonoBehaviour
             cols.Add(Instantiate(Mapa, new Vector2(-10+ i, -3), quaternion.identity)) ;
 
         }
+
+        obstaculos.Add(Instantiate(zom01, new Vector2(-14, -2), quaternion.identity)) ;
+
+
     }
 
     // Update is called once per frame
@@ -40,6 +46,20 @@ public class GameManager : MonoBehaviour
             cols[i].transform.position = cols[i].transform.position + new Vector3(-1, 0, 0)*Time.deltaTime * velocidad;
 
         }
+        for(int i=0; i<obstaculos.Count; i++)
+        {
+            if(obstaculos[i].transform.position.x <=-10)
+            {
+                
+                obstaculos[i].transform.position = new Vector3(10, -3, 0);
+
+            }
+
+            obstaculos[i].transform.position = obstaculos[i].transform.position + new Vector3(-1, 0, 0)*Time.deltaTime * velocidad;
+
+        }
+
+
         
     }
 }
