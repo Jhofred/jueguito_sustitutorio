@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public GameObject Mapa;
     public Renderer fondo;
     public  List<GameObject> cols;
+    public GameObject zombie;
+    public GameObject Zombie2;
 
     public float velocidad = 2;
     // Start is called before the first frame update
